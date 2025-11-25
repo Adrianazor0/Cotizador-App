@@ -1,5 +1,4 @@
 import mongoose, { Schema, Document} from "mongoose";
-import { lowercase, trim } from "zod";
 
 export interface IClient extends Document {
     firstName: string;
