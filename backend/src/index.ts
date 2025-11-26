@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import helmet from 'helmet';
 import { connectDB } from './config/db';
+import clientRoutes from './routes/client.routes';
 
 dotenv.config();
 
@@ -14,6 +15,8 @@ connectDB();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
+
+app.use('/api/clients', clientRoutes);
 
 app.get('/health', (req: Request, res: Response) => {
     res.json({

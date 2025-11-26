@@ -2,10 +2,10 @@ import { z } from "zod";
 
 export const createClientSchema = z.object({
     body: z.object({
-        firstName: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
-        lastName: z.string().min(2, 'El apellido debe tener al menos 2 caracteres'),
-        email: z.string().email('Correo electrónico inválido'),
-        phone: z.string().min(10, 'El teléfono es muy corto'),
+        firstName: z.string().min(2, 'Name must be at least 2 characters long'),
+        lastName: z.string().min(2, 'Last name must be at least 2 characters long'),
+        email: z.string().email('Invalid email address'),
+        phone: z.string().min(10, 'Phone number is too short'),
         address: z.string().optional(),
         taxId: z.string().optional(),
     })

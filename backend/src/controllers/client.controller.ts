@@ -1,6 +1,6 @@
 import { Request, Response} from "express";
 import * as clientService from '../services/client.service';
-import { CreateClientInput, UpdateClientInput } from "../schemas/client.schema";
+import { CreateClientInput } from "../schemas/client.schema";
 
 export const createClientHandler = async (
     req: Request<{}, {}, CreateClientInput>, 
