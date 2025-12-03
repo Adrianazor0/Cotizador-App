@@ -1,8 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { getClients } from '../services';
 import { Loader2, UserX } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export const ClientList = () => {
+  const navigate = useNavigate();
+
   const { data: clients, isLoading, isError, error } = useQuery({
     queryKey: ['clients'],
     queryFn: getClients,
@@ -45,7 +48,10 @@ export const ClientList = () => {
                 </thead>
                 <tbody className='bg-white divide-y divide-gray-200'>
                     {clients.map((client) => (
-                        <tr key={client._id} className='hover:bg-gray-50 transition-colors'>
+                        <tr 
+                          key={client._id} 
+                          onClick={() => navigate(`/clients/${client._id}`)}
+                          className='hover:bg-gray-50 transition-colors cursor-pointer'>
                             <td className='px-6 py-4 whitespace-nowrap'>
                                 <div className='text-sm font-medium text-gray-900'>
                                     {client.firstName} {client.lastName}
